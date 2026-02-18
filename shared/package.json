@@ -1,0 +1,15 @@
+{
+  "name": "@estebanhub/shared",
+  "version": "1.0.0",
+  "description": "Shared TypeScript interfaces and types for EstebanHub",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["typescript", "interfaces", "shared"],
+  "author": "EstebanHub",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

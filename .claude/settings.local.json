@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:weethub.com)",
+      "Bash(npm install:*)",
+      "Bash(npx @nestjs/cli@latest new:*)",
+      "Bash(npm run start:dev:*)",
+      "Bash(npm run dev:ssr:*)",
+      "Bash(npm start)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(\"c:/Users/Esteban/Desktop/EstebanHub/frontend/src/app/features/public/portfolio/portfolio.routes.ts\":*)"
+    ]
+  }
+}
