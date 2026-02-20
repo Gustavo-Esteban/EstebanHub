@@ -539,13 +539,13 @@ import { CommonModule } from '@angular/common';
       .nav-links {
         display: none;
         position: fixed;
-        top: 70px;
+        top: 0;
         right: 0;
-        bottom: 0;
+        height: 100vh;
         width: 280px;
         flex-direction: column;
         align-items: flex-start;
-        padding: 24px;
+        padding: 70px 24px 24px;
         gap: 8px;
         background: rgba(10, 10, 25, 0.98);
         backdrop-filter: blur(20px);
@@ -586,6 +586,20 @@ export class PublicLayoutComponent {
     this.scrolled.set(window.scrollY > 40);
   }
 
-  toggleMenu() { this.menuOpen.update(v => !v); }
-  closeMenu() { this.menuOpen.set(false); }
+  toggleMenu() {
+    this.menuOpen.update((open) => {
+      const next = !open;
+      if (typeof document !== 'undefined') {
+        document.body.style.overflow = next ? 'hidden' : '';
+      }
+      return next;
+    });
+  }
+
+  closeMenu() {
+    this.menuOpen.set(false);
+    if (typeof document !== 'undefined') {
+      document.body.style.overflow = '';
+    }
+  }
 }

@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   supabaseUrl: 'https://lbpqesthwtzihiccqtdd.supabase.co',
   supabaseAnonKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxicHFlc3Rod3R6aWhpY2NxdGRkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzEyODg3MjMsImV4cCI6MjA4Njg2NDcyM30.zO2hBsmjE6M3B7caSFlMaTc-B7orEeyjGLjiUosAQlM',
-  apiUrl: 'http://localhost:3000/api',
+  apiUrl: 'https://api.estebanhub.com/api',
 };
 
 /*
