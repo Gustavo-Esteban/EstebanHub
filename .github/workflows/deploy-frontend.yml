@@ -27,6 +27,11 @@ jobs:
           npm install
           npm run build
 
+      - name: Prepare static index.html
+        working-directory: ./frontend
+        run: |
+          cp dist/estebanhub/browser/index.csr.html dist/estebanhub/browser/index.html
+
       - name: Deploy via FTP to Hostinger
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
