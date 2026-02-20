@@ -115,7 +115,7 @@ import { CommonModule } from '@angular/common';
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 10.7a19.79 19.79 0 01-3.07-8.67A2 2 0 012.88 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/>
                 </svg>
-                <a href="https://wa.me/5511999999999" target="_blank">(11) 99999-9999</a>
+                <a href="https://wa.me/5511970397086" target="_blank">(11) 97039-7086</a>
               </li>
               <li>
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
@@ -156,7 +156,7 @@ import { CommonModule } from '@angular/common';
 
     <!-- ======= WHATSAPP FAB ======= -->
     <a
-      href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento."
+      href="https://wa.me/5511970397086?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20orçamento."
       target="_blank"
       rel="noopener"
       class="whatsapp-fab"

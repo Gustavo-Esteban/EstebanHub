@@ -214,8 +214,8 @@ import { firstValueFrom } from 'rxjs';
                   <span class="method-icon">💬</span>
                   <div>
                     <strong>WhatsApp</strong>
-                    <a href="https://wa.me/5511999999999" target="_blank">
-                      (11) 99999-9999
+                    <a href="https://wa.me/5511970397086" target="_blank">
+                      (11) 97039-7086
                     </a>
                   </div>
                 </div>
@@ -250,7 +250,7 @@ import { firstValueFrom } from 'rxjs';
                   </div>
                   <div class="form-group">
                     <label>Telefone</label>
-                    <input type="tel" formControlName="phone" placeholder="(11) 99999-9999">
+                    <input type="tel" formControlName="phone" placeholder="(11) 97039-7086">
                   </div>
                 </div>
 

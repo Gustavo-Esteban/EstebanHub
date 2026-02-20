@@ -37,12 +37,12 @@ import { firstValueFrom } from 'rxjs';
             </div>
             <div class="form-group">
               <label>Telefone</label>
-              <input type="tel" formControlName="company_phone" placeholder="(11) 99999-9999">
+              <input type="tel" formControlName="company_phone" placeholder="(11) 97039-7086">
             </div>
             <div class="form-group">
               <label>WhatsApp</label>
-              <input type="tel" formControlName="company_whatsapp" placeholder="5511999999999">
-              <small>Formato internacional: 5511999999999</small>
+              <input type="tel" formControlName="company_whatsapp" placeholder="5511970397086">
+              <small>Formato internacional: 5511970397086</small>
             </div>
             <div class="form-group form-full">
               <label>Endereço</label>
