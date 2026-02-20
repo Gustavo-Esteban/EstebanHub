@@ -11,7 +11,7 @@ export class EmailService {
     this.transporter = nodemailer.createTransport({
       host: this.configService.get('EMAIL_HOST'),
       port: this.configService.get('EMAIL_PORT'),
-      secure: true, // true for 465, false for other ports
+      secure: true,
       auth: {
         user: this.configService.get('EMAIL_USER'),
         pass: this.configService.get('EMAIL_PASSWORD'),
@@ -28,6 +28,17 @@ export class EmailService {
   }): Promise<void> {
     const notificationEmail = this.configService.get('NOTIFICATION_EMAIL');
     const emailFrom = this.configService.get('EMAIL_FROM');
+    const resendApiKey = this.configService.get('RESEND_API_KEY');
+
+    if (!notificationEmail || !emailFrom) {
+      console.error('Email configuration is missing NOTIFICATION_EMAIL or EMAIL_FROM');
+      return;
+    }
+
+    if (resendApiKey) {
+      await this.sendWithResend(lead, notificationEmail, emailFrom);
+      return;
+    }
 
     const mailOptions = {
       from: emailFrom,
@@ -40,8 +51,54 @@ export class EmailService {
       await this.transporter.sendMail(mailOptions);
       console.log(`Email sent to ${notificationEmail} for lead: ${lead.name}`);
     } catch (error) {
-      console.error('Error sending email:', error);
-      // Não lançar erro para não bloquear a criação do lead
+      console.error('Error sending email via SMTP:', error);
+    }
+  }
+
+  private async sendWithResend(
+    lead: {
+      name: string;
+      email: string;
+      phone?: string;
+      company?: string;
+      message?: string;
+    },
+    notificationEmail: string,
+    emailFrom: string,
+  ): Promise<void> {
+    const apiKey = this.configService.get('RESEND_API_KEY');
+
+    if (!apiKey) {
+      console.error('RESEND_API_KEY is not configured');
+      return;
+    }
+
+    const payload = {
+      from: emailFrom,
+      to: [notificationEmail],
+      subject: `🔔 Novo Lead: ${lead.name}`,
+      html: this.getLeadNotificationTemplate(lead),
+    };
+
+    try {
+      const response = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        const text = await response.text();
+        console.error('Error sending email via Resend:', response.status, text);
+        return;
+      }
+
+      console.log(`Email sent via Resend to ${notificationEmail} for lead: ${lead.name}`);
+    } catch (error) {
+      console.error('Error sending email via Resend:', error);
     }
   }
 
