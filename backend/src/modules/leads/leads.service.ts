@@ -61,8 +61,9 @@ export class LeadsService {
       throw new InternalServerErrorException(error.message);
     }
 
-    // Enviar notificação por email (não bloqueia se falhar)
-    await this.emailService.sendLeadNotification(data);
+    this.emailService
+      .sendLeadNotification(data)
+      .catch((err) => console.error('Error sending lead notification email:', err));
 
     return data;
   }
